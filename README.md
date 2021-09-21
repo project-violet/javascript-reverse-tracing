@@ -128,20 +128,28 @@ a(c)
 
 ```js
 fuction a1(a) {a.a = 1}
-fuction a2(a) {a.a = 2}
-fuction a3(a) {a.a = 3}
+fuction a2(a) {a.b = 2}
+fuction a3(a) {a.c = 3}
 
-function foo(f1,f2,f3,a,b,c) {
+function foo(f1,f2,f3,a,b,d,e,c) {
  if (a<b) f1(c);
- else if (a>b) f2(c);
- else f3(c);
+ else if (d>b) f2(c);
+ else if (e==0) f3(c);
 }
-c = {a:0}
+c = {a:0,b:0,c:0}
 x = a1
 if (1>3)
  x = a2
-foo(a1,a2,a3,4,2,c)
+foo(x,a2,a3,4,2,4,5,c)
 ```
 
-`a1`함수는 인자 `a1::a`를 바꿀 수 있다.
-`foo`함수의 인자 `f1`의 가능한  `{a1,a2}`이다.
+`a1`함수는 인자 `a::a`를 바꿀 수 있다.
+`foo`함수의 인자 `f1`의 가능한 람다는 `{a1,a2}`이다.
+
+더불어 인자 `a,b`는 `{f1,f2,f3}`의 실행 여부를 결정한다.
+`f1={a1,a2}`이고 `f2={a2}`, `f3={a3}`이므로
+인자 변경 집합은 `f1={<p1>::a, <p1>::b}`, `f2={<p1>::b}`, `f3={<p1>::c}`이 된다.
+`f1`은 `a,b`에 영향을 받으므로 `c::a, c::b`는 `a,b`의 영향을 받는다.
+`c::b`는 또한 `a,b,d`의 영향을 받고, `c::c`는 `a,b,d,e`의 영향을 받는다.
+
+최종적으로 `c::a`는 `a,b`의 영향을, `c::b`는 `a,b,d`의 영향을, `c::c`는 `a,b,d,e`의 영향을 받는다.
