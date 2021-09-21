@@ -1,7 +1,5 @@
 # javascript-reverse-tracing
 
-# javascript-reverse-tracing
-
 ## Goal
 
  - 요청의 특정 파라미터들이 어떻게 만들어지는가?
