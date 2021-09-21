@@ -51,6 +51,10 @@ bar();
 
 `Lexical Scope`는 함수가 어디에서 호출되는지가 아닌 어디에 선언되어있는가에 따라 결정된다.
 
+## Expression Analysis
+
+한 줄 한 줄 분석하기
+
 ## Function Analysis
 
 ### IN / OUT
