@@ -155,6 +155,8 @@ foo(x,a2,a3,4,2,4,5,c)
 
 최종적으로 `c::a`는 `a,b`의 영향을, `c::b`는 `a,b,d`의 영향을, `c::c`는 `a,b,d,e`의 영향을 받는다.
 
+### 
+
 ## Dyanmic Reverse Tracing
 
  - 예를들어 `{"token":"asdfasdfasdf"...}`이 `POST` 데이터에 있다고 해보자. 이 요청은 웹 브라우저의 요청이 아닌 `xhr`이다.
